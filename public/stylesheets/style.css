@@ -6,5 +6,9 @@ body {
 }
 
 a {
-  color: #00B7FF;
+  color: black;
+}
+
+.series-image {
+  width: 50px;
 }

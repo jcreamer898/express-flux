@@ -15,7 +15,7 @@ var Series = React.createClass({
     SeriesStore.addChangeListener(this.seriesLoaded);
   },
   getAll() {
-    SeriesActionCreators.getAllSeriess();
+    SeriesActionCreators.getAllSeries();
   },
   render() {
     /* jshint ignore:start */
@@ -25,7 +25,7 @@ var Series = React.createClass({
         <p>Here are epic series from Marvel</p>
         <ul className="series-list__container">
           {this.state.series.map(function(result) {
-             return <SeriesItem title={result.title}/>;
+              return <SeriesItem item={result} />;
           })}
         </ul>
         <button onClick={this.getAll}>Get All</button>

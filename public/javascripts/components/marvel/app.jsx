@@ -11,8 +11,6 @@ var Marvel = React.createClass({
   getInitialState() {
     var series = this.props.initialSeries;
 
-    console.log(series);
-
     AppActionCreators.setInitialSeries(series);
 
     return {

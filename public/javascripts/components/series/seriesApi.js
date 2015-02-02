@@ -1,13 +1,18 @@
-var creators = require("./seriesServerActionCreators");
+var ServerActions = require("./seriesServerActionCreators");
 
 module.exports = {
   getInitialSeries: function() {
-    creators.recieveInitialSeries([]);
+    ServerActions.recieveInitialSeries([]);
   },
-  getAllArticles: function() {
+  getAllSeries: function() {
     // Simulate, hit api soon
-    setTimeout(function() {
-      creators.recieveAllSeries([]);
-    }, 30);
+    $.ajax({
+      url: "/series",
+      data: {
+        offset: 21
+      }
+    }).done(function(series) {
+      ServerActions.recieveAllSeries(series);
+    });
   }
 };

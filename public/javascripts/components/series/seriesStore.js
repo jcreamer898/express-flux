@@ -11,7 +11,7 @@ var ActionTypes = require("../../constants/actionTypes");
  * @property {string} description
  * @property {string} keywords
  */
-var articles = [];
+var series = [];
 var allLoaded = false;
 
 var SeriesStore = new Store({
@@ -21,7 +21,7 @@ var SeriesStore = new Store({
    * @returns {Page}
    */
   get: function() {
-    return articles;
+    return series;
   }
 
 });
@@ -31,12 +31,12 @@ SeriesStore.dispatcherToken = Dispatcher.register(function(payload) {
   var action = payload.action;
 
   if (action.actionType == ActionTypes.LOAD_INITIAL_SERIES) {
-    articles = action.articles;
+    series = action.series;
     SeriesStore.emitChange();
   }
   else if (action.actionType == ActionTypes.LOAD_ALL_SERIES) {
     if (!allLoaded) {
-      articles = articles.concat(action.articles);
+      series = series.concat(action.series);
       allLoaded = true;
     }
     SeriesStore.emitChange();

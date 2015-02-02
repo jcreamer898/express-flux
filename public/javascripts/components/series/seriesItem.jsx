@@ -2,10 +2,14 @@ var React = require("react");
 
 var ArticleItem = React.createClass({
   render() {
+    console.log(this.props.item);
     /* jshint ignore:start */
     return (
       <li className="series-item">
-        {this.props.title}
+        <a href={this.props.item.urls[0].url}>
+        <img className="series-image" src={this.props.item.thumbnail.path + "." + this.props.item.thumbnail.extension} />
+          {this.props.item.title}
+        </a>
       </li>
     )
     /* jshint ignore:end */

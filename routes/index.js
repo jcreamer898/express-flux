@@ -34,11 +34,13 @@ router.get("/series", function(req, res) {
     privateKey: req.marvel.auth.secret
   });
 
-  marvel.series.findAll()
-    .then(function(json) {      
+  marvel.series.findAll(req.query.limit || 20, req.query.offset || 0)
+    .then(function(json) {
       res.json(json.data);
     })
-    .fail(debug)
+    .fail(function(e) {
+      console.log(e);
+    })
     .done();
 });
 

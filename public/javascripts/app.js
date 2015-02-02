@@ -1,7 +1,7 @@
 "use strict";
 
 var React = require("react"),
-    Destinations = require("components/series/series");
+    Marvel = require("components/marvel/app");
     
 // ArticlesAPI = require("./components/articles/articleApi");
 
@@ -9,8 +9,8 @@ var React = require("react"),
 
 if (typeof window !== "undefined") {
   window.onload = function() {
-    React.renderComponent(Destinations({
-      initialArticles: window.App.initialArticles
+    React.renderComponent(Marvel({
+      initialSeries: window.App.initialSeries
     }), document.getElementById("content"));
   };
 }
