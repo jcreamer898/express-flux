@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{{ title }}</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+
+    
+  </head>
+  <body>
+
+    <div id="content">
+      {{{markup}}}
+    </div>
+
+    <script id="initialArticles">
+      window.App = {};
+      App.initialSeries = {{{initialSeries}}};
+    </script>
+    <script src="/javascripts/bundle.js"></script>
+  </body>
+</html>

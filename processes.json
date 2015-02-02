@@ -1,0 +1,11 @@
+{
+    "apps" : [{
+        "name"        : "express-flux",
+        "script"      : "app.js",
+        "watch"       : true,
+        "node_args"   : "--harmony",
+        "env": {
+            "NODE_ENV": "development"
+        }
+    }]
+}
