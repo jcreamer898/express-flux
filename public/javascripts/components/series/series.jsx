@@ -5,10 +5,13 @@ var React = require("react"),
 
 // require("./Seriess.scss");
 
+var seriesBeforeSearch;
+
 var Series = React.createClass({
   getInitialState() {
     return {
-      series: this.props.series
+      series: this.props.series,
+      filter: ""
     };
   },
   componentDidMount: function() {
@@ -18,13 +21,19 @@ var Series = React.createClass({
     SeriesActionCreators.getAllSeries();
   },
   render() {
+    var filter = this.state.filter;
+    var filtered = this.state.series.filter(function(item) {
+      return item.title.toLowerCase().indexOf(filter.toLowerCase()) > -1;
+    });
+
     /* jshint ignore:start */
     return (
       <div className="series">
         <h1 className="series__header--text">Series</h1>
         <p>Here are epic series from Marvel</p>
+        <input type="text" placeholder="filter" onChange={this.filter} />
         <ul className="series-list__container">
-          {this.state.series.map(function(result) {
+          {filtered.map(function(result) {
               return <SeriesItem item={result} />;
           })}
         </ul>
@@ -32,6 +41,13 @@ var Series = React.createClass({
       </div>
     )
     /* jshint ignore:end */
+  },
+  filter: function(event) {
+    var filter = event.target.value;
+
+    this.setState({ 
+      filter: filter
+    });
   },
   seriesLoaded: function() {
     this.setState({
