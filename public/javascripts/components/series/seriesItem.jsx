@@ -2,7 +2,6 @@ var React = require("react");
 
 var ArticleItem = React.createClass({
   render() {
-    console.log(this.props.item);
     /* jshint ignore:start */
     return (
       <li className="series-item">

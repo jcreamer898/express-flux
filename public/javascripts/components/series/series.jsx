@@ -34,7 +34,7 @@ var Series = React.createClass({
         <input type="text" placeholder="filter" onChange={this.filter} />
         <ul className="series-list__container">
           {filtered.map(function(result) {
-              return <SeriesItem item={result} />;
+              return <SeriesItem item={result} key={result.id} />;
           })}
         </ul>
         <button onClick={this.getAll}>Get All</button>

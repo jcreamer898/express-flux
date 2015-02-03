@@ -1,7 +1,7 @@
 "use strict";
 
 var React = require("react"),
-    Marvel = require("components/marvel/app");
+    Marvel = React.createFactory(require("components/marvel/app"));
     
 // ArticlesAPI = require("./components/articles/articleApi");
 
@@ -9,7 +9,7 @@ var React = require("react"),
 
 if (typeof window !== "undefined") {
   window.onload = function() {
-    React.renderComponent(Marvel({
+    React.render(Marvel({
       initialSeries: window.App.initialSeries
     }), document.getElementById("content"));
   };

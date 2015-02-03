@@ -9,14 +9,14 @@ var api = require("marvel-api");
 var express = require("express");
 var router = express.Router();
 var React = require("react");
-var Marvel = require("../public/javascripts/components/marvel/app");
+var Marvel = React.createFactory(require("../public/javascripts/components/marvel/app"));
 var debug = require("debug");
 
 /* GET home page. */
 router.get("/", function(req, res) {
   var series = require("../server/series");
 
-  var markup = React.renderComponentToString(
+  var markup = React.renderToString(
     Marvel({
       initialSeries: series
     })
