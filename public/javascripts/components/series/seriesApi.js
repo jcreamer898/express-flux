@@ -1,8 +1,8 @@
 var ServerActions = require("./seriesServerActionCreators");
 
 module.exports = {
-  getInitialSeries: function() {
-    ServerActions.recieveInitialSeries([]);
+  getInitialSeries: function(series) {
+    ServerActions.recieveInitialSeries(series);
   },
   getAllSeries: function() {
     // Simulate, hit api soon

@@ -10,7 +10,7 @@ var seriesBeforeSearch;
 var Series = React.createClass({
   getInitialState() {
     return {
-      series: this.props.series,
+      series: SeriesStore.get(),
       filter: ""
     };
   },

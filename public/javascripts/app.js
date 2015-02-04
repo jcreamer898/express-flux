@@ -3,14 +3,19 @@
 var React = require("react"),
     Marvel = React.createFactory(require("components/marvel/app"));
     
-// ArticlesAPI = require("./components/articles/articleApi");
-
-// ArticlesAPI.getInitialArticles();
+var SeriesAPI = require("./components/series/seriesApi");
 
 if (typeof window !== "undefined") {
+  SeriesAPI.getInitialSeries(window.App.initialSeries);
+
   window.onload = function() {
-    React.render(Marvel({
-      initialSeries: window.App.initialSeries
-    }), document.getElementById("content"));
+    React.render(Marvel(), document.getElementById("content"));
   };
-}
+} 
+// else {
+//   module.exports = function(initialSeries) {
+//     SeriesAPI.getInitialSeries(initialSeries);
+
+//     return Marvel;
+//   };
+// }

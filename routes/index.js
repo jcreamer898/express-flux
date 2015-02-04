@@ -10,16 +10,17 @@ var express = require("express");
 var router = express.Router();
 var React = require("react");
 var Marvel = React.createFactory(require("../public/javascripts/components/marvel/app"));
+var SeriesApi = require("../public/javascripts/components/series/seriesApi");
 var debug = require("debug");
 
 /* GET home page. */
 router.get("/", function(req, res) {
   var series = require("../server/series");
 
+  SeriesApi.getInitialSeries(series);
+
   var markup = React.renderToString(
-    Marvel({
-      initialSeries: series
-    })
+    Marvel()
   );
   res.render("index", { 
     title: "Express", 

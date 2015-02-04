@@ -8,20 +8,11 @@ var React = require("react"),
 function getState() {}
 
 var Marvel = React.createClass({
-  getInitialState() {
-    var series = this.props.initialSeries;
-
-    AppActionCreators.setInitialSeries(series);
-
-    return {
-      series: series
-    };
-  },
   render() {
     /* jshint ignore:start */
     return(
       <div className="marvel">
-        <Series series={this.state.series}/>
+        <Series />
       </div>
     );
     /* jshint ignore:end */
